@@ -1,0 +1,35 @@
+import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import BlogScreen from "./screens/BlogScreen";
+import SingleBlogScreen from "./screens/SingleBlogScreen";
+import ContactScreen from "./screens/ContactScreen";
+import LoginScreen from "./screens/LoginScreen";
+import AdminScreen from "./screens/AdminScreen";
+import Footer from "./components/Footer";
+import HomeScreen from "./screens/HomeScreen";
+import AboutScreen from "./screens/AboutScreen";
+
+const App = () => {
+  return (
+    <ChakraProvider>
+      <Router>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/blog/:category" element={<BlogScreen />}></Route>
+            <Route path="/:id" element={<SingleBlogScreen />}></Route>
+            <Route path="/contact" element={<ContactScreen />}></Route>
+            <Route path="/login" element={<LoginScreen />}></Route>
+            <Route path="/admin-console" element={<AdminScreen />}></Route>
+            <Route path="/" element={<HomeScreen />}></Route>
+            <Route path="/about" element={<AboutScreen />}></Route>
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
+    </ChakraProvider>
+  );
+};
+
+export default App;
